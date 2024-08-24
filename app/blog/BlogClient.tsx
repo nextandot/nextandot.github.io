@@ -6,19 +6,14 @@ import Link from "next/link"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { SearchBar } from "@/components/search-bar"
 import { TagList } from "@/components/tag-list"
-
-interface Post {
-  id: string
-  title: string
-  date: string
-  tags: string[]
-}
+import { Post } from '@/lib/posts' 
 
 interface BlogClientProps {
-  initialPosts: Post[]
-}
+    initialPosts: Post[]
+  }
 
-export default function BlogClient({ initialPosts }: BlogClientProps) {
+
+  export default function BlogClient({ initialPosts }: BlogClientProps) {
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(initialPosts)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
 

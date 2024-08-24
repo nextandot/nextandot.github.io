@@ -1,25 +1,23 @@
-"use client"
-
-import { Button } from "@/components/ui/button"
-
 interface TagListProps {
-  tags: string[]
-  selectedTag: string | null
-  onTagSelect: (tag: string) => void
+  tags: string[];
+  selectedTag?: string | null;
+  onTagSelect?: (tag: string) => void;
 }
 
 export function TagList({ tags, selectedTag, onTagSelect }: TagListProps) {
   return (
-    <div className="flex flex-wrap gap-2 mb-4">
+    <div className="flex flex-wrap gap-2 mt-4">
       {tags.map((tag) => (
-        <Button
+        <span
           key={tag}
-          variant={selectedTag === tag ? "default" : "outline"}
-          onClick={() => onTagSelect(tag)}
+          className={`px-2 py-1 text-sm rounded ${
+            selectedTag === tag ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+          } ${onTagSelect ? 'cursor-pointer' : ''}`}
+          onClick={() => onTagSelect && onTagSelect(tag)}
         >
           {tag}
-        </Button>
+        </span>
       ))}
     </div>
-  )
+  );
 }

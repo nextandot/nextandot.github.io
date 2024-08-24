@@ -1,18 +1,16 @@
-import { getAllPosts } from '@/lib/posts'
-import Link from 'next/link'
+import { getAllPosts, Post } from '@/lib/posts'
 
-export default function TagPage({ params }: { params: { tag: string } }) {
-  const posts = getAllPosts().filter(post => post.tags.includes(params.tag))
+export default async function TagPage({ params }: { params: { tag: string } }) {
+  const allPosts = await getAllPosts()
+  const posts = allPosts.filter(post => post.tags.includes(params.tag))
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Posts tagged with &quot;{params.tag}&quot;</h1>
-      <ul className="space-y-4">
+      <h1>Posts tagged with &quot;{params.tag}&quot;</h1>
+      <ul>
         {posts.map((post) => (
-          <li key={post.slug} className="bg-gray-100 p-4 rounded">
-            <Link href={`/blog/${post.slug}`} className="font-semibold hover:underline">
-              {post.title}
-            </Link>
+          <li key={post.id}>
+            <a href={`/blog/${post.slug}`}>{post.title}</a>
           </li>
         ))}
       </ul>

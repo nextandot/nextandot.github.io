@@ -1,9 +1,8 @@
 import { getPostBySlug } from '@/lib/posts'
-import Link from 'next/link'
 import { TagList } from "@/components/tag-list"
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug)
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = await getPostBySlug(params.slug)
 
   if (!post) {
     return <div className="text-center">Post not found</div>
