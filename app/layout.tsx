@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <nav className="bg-slate-800 text-white p-4">
           <div className="container mx-auto flex justify-between items-center">
-            <Link href="/" className="text-xl font-bold">My Team Site</Link>
+            <Link href="/" className="text-xl font-bold">Nextandot</Link>
             <div className="space-x-4">
               <Link href="/members">Members</Link>
               <Link href="/apps">Apps</Link>
