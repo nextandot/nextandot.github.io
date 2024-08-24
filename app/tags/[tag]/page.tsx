@@ -1,14 +1,23 @@
-import { getAllPosts, Post } from '@/lib/posts'
+import { getAllPosts } from '@/lib/posts'
+
+export async function generateStaticParams() {
+  const posts = await getAllPosts()
+  const tags = Array.from(new Set(posts.flatMap(post => post.tags)))
+  
+  return tags.map(tag => ({
+    tag: tag,
+  }))
+}
 
 export default async function TagPage({ params }: { params: { tag: string } }) {
-  const allPosts = await getAllPosts()
-  const posts = allPosts.filter(post => post.tags.includes(params.tag))
+  const posts = await getAllPosts()
+  const filteredPosts = posts.filter(post => post.tags.includes(params.tag))
 
   return (
     <div>
       <h1>Posts tagged with &quot;{params.tag}&quot;</h1>
       <ul>
-        {posts.map((post) => (
+        {filteredPosts.map((post) => (
           <li key={post.id}>
             <a href={`/blog/${post.slug}`}>{post.title}</a>
           </li>

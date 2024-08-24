@@ -1,19 +1,25 @@
-// app/blog/BlogClient.tsx
-"use client"
+'use client'
 
 import { useState } from "react"
 import Link from "next/link"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { SearchBar } from "@/components/search-bar"
 import { TagList } from "@/components/tag-list"
-import { Post } from '@/lib/posts' 
+
+interface Post {
+  id: string
+  slug: string
+  title: string
+  date: string
+  tags: string[]
+  content: string
+}
 
 interface BlogClientProps {
-    initialPosts: Post[]
-  }
+  initialPosts: Post[]
+}
 
-
-  export default function BlogClient({ initialPosts }: BlogClientProps) {
+export default function BlogClient({ initialPosts }: BlogClientProps) {
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(initialPosts)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
 
@@ -50,7 +56,7 @@ interface BlogClientProps {
           <Card key={post.id}>
             <CardHeader>
               <CardTitle>
-                <Link href={`/blog/${post.id}`}>{post.title}</Link>
+                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
               </CardTitle>
             </CardHeader>
             <CardContent>

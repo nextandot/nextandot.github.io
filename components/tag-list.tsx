@@ -1,7 +1,9 @@
+import React from 'react'
+
 interface TagListProps {
-  tags: string[];
-  selectedTag?: string | null;
-  onTagSelect?: (tag: string) => void;
+  tags: string[]
+  selectedTag: string | null
+  onTagSelect: (tag: string) => void
 }
 
 export function TagList({ tags, selectedTag, onTagSelect }: TagListProps) {
@@ -10,14 +12,14 @@ export function TagList({ tags, selectedTag, onTagSelect }: TagListProps) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className={`px-2 py-1 text-sm rounded ${
+          className={`px-2 py-1 text-sm rounded cursor-pointer ${
             selectedTag === tag ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-          } ${onTagSelect ? 'cursor-pointer' : ''}`}
-          onClick={() => onTagSelect && onTagSelect(tag)}
+          }`}
+          onClick={() => onTagSelect(tag)}
         >
           {tag}
         </span>
       ))}
     </div>
-  );
+  )
 }
