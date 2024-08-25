@@ -20,11 +20,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   return (
     <article className="prose lg:prose-xl mx-auto">
-      <h1 className="text-4xl font-bold">{post.title}</h1>
+      <h1 className="text-2xl font-bold mb-2">{post.title}</h1>
       <ReactMarkdown 
         rehypePlugins={[rehypeRaw]}
         remarkPlugins={[remarkGfm]}
-        className="mt-4"
+        className="mt-4 text-base"
       >
         {post.content}
       </ReactMarkdown>
