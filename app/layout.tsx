@@ -6,8 +6,8 @@ import Link from 'next/link'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'My Team Site',
-  description: 'Our team, apps, and blog',
+  title: 'Nextandot',
+  description: 'プログラミング/開発ブログ',
 }
 
 export default function RootLayout({
