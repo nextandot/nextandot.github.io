@@ -1,8 +1,19 @@
 import { getAllPosts, getPostBySlug } from '@/lib/posts'
 import { TagListWrapper } from "@/components/tag-list-wrapper"
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
+
+
+const customComponents: Components = {
+  span: ({ className, children, ...props }) => {
+    if (className === 'red-text' || className === 'blue-text') {
+      return <span className={className} {...props}>{children}</span>;
+    }
+    return <span {...props}>{children}</span>;
+  },
+};
+
 
 export async function generateStaticParams() {
     const posts = await getAllPosts()
@@ -24,6 +35,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       <ReactMarkdown 
         rehypePlugins={[rehypeRaw]}
         remarkPlugins={[remarkGfm]}
+        components={customComponents}
         className="mt-4 text-base"
       >
         {post.content}
