@@ -9,7 +9,7 @@ const members = [
         'シリコンバレー出張が自慢',
         'C++とpythonがメイン。AWS勉強中。',
       ],
-      imageUrl: '/images/taux.jpg'
+      imageUrl: '/images/members/taux.jpg'
     },
     {
       name: 'Ryu',
@@ -18,7 +18,7 @@ const members = [
         '新しいもの好き。',
         'DataSaberめざしてます。'
       ],
-      imageUrl: '/images/ryu.jpg'
+      imageUrl: '/images/members/ryu.jpg'
     },
     {
       name: 'asaiasa',
@@ -26,7 +26,7 @@ const members = [
       description: [
         'ジム通いでマッチョを目指す',
       ],
-      imageUrl: '/images/asaiasa.jpg'
+      imageUrl: '/images/members/asaiasa.jpg'
     },
     {
       name: 'narugit',
@@ -34,7 +34,7 @@ const members = [
       description: [
         'スパイスカレー修行中',
       ],
-      imageUrl: '/images/narugit.jpg'
+      imageUrl: '/images/members/narugit.jpg'
     },
     {
       name: 'youseegreen',
@@ -42,7 +42,7 @@ const members = [
       description: [
         'マンホーラーでもある：<a href="https://twitter.com/ManholeBeginner" target="_blank" class="text-blue-500 underline">ManholeBot</a>',
       ],
-      imageUrl: '/images/youseegreen.jpg'
+      imageUrl: '/images/members/youseegreen.jpg'
     },
     {
       name: 'Morita',
@@ -50,7 +50,7 @@ const members = [
       description: [
         '簿記/FP 3級勉強中',
       ],
-      imageUrl: '/images/morita.jpg'
+      imageUrl: '/images/members/morita.jpg'
     },
   ]
 

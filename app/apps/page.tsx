@@ -5,13 +5,13 @@ const apps = [
   { 
     name: 'Urim', 
     description: 'ToDoを管理するネイティブアプリ。対応期日までの日数(URgency)と、ToDoの重要度(IMportance)の二軸で管理します。',
-    image: '/images/urim.jpg',
+    image: '/images/projects/urim.jpg',
     slug: 'urim'
   },
   { 
     name: 'Score Generator', 
     description: '音源を読み込み、楽譜を表示します。難易度バーを調整することで、譜面の難易度を変更できます。',
-    image: '/images/no-image.jpg',
+    image: '/images/projects/no-image.jpg',
     slug: 'score-generator'
   },
 ]
