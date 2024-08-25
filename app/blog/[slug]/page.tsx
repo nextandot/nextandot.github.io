@@ -1,5 +1,8 @@
 import { getAllPosts, getPostBySlug } from '@/lib/posts'
 import { TagListWrapper } from "@/components/tag-list-wrapper"
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 
 export async function generateStaticParams() {
     const posts = await getAllPosts()
@@ -18,7 +21,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   return (
     <article className="prose lg:prose-xl mx-auto">
       <h1 className="text-4xl font-bold">{post.title}</h1>
-      <p className="mt-4">{post.content}</p>
+      <ReactMarkdown 
+        rehypePlugins={[rehypeRaw]}
+        remarkPlugins={[remarkGfm]}
+        className="mt-4"
+      >
+        {post.content}
+      </ReactMarkdown>
       <TagListWrapper tags={post.tags} />
     </article>
   )

@@ -8,12 +8,13 @@ import { SearchBar } from "@/components/search-bar"
 import { TagList } from "@/components/tag-list"
 
 interface Post {
-  id: string
-  slug: string
-  title: string
-  date: string
-  tags: string[]
-  content: string
+  id: string;
+  slug: string;
+  title: string;
+  date: string;
+  tags: string[];
+  content: string;
+  thumbnail?: string;
 }
 
 interface BlogClientProps {

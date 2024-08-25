@@ -7,14 +7,14 @@ import html from 'remark-html';
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 export interface Post {
-    id: string;
-    slug: string;
-    title: string;
-    date: string;
-    tags: string[];
-    content: string;
-    thumbnail?: string;
-  }
+  id: string;
+  slug: string;
+  title: string;
+  date: string;
+  tags: string[];
+  content: string;
+  thumbnail?: string;
+}
 
 export async function getPostBySlug(slug: string): Promise<Post>  {
   const fullPath = path.join(postsDirectory, `${slug}.md`)
