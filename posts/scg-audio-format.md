@@ -20,7 +20,7 @@ thumbnail: '/images/blogs/scg_audio_format/piano_roll.png'
     - アナログのオーディオ波形をサンプリング、量子化して記録した形式（非圧縮）
     - ギターやマイクの音をDAWで取り入れた場合はこの形式になる
     - ファイル形式としては、WAVファイル（拡張子は.wav）が代表的
-    <img src="/images/blogs/scg_audio_format/wav.png" alt="wav" width="50%">
+    <img src="/images/blogs/scg_audio_format/wav.png" alt="wav" width="90%">
 
   - MP3形式
     - リニアPCMから圧縮を行い、データ量を軽量化した形式
@@ -32,7 +32,7 @@ thumbnail: '/images/blogs/scg_audio_format/piano_roll.png'
     - ノートナンバー：音の高さ (0～127)
     - ベロシティ：音量 (0～127)
     - ノートオン / ノートオフ：音（打鍵）のオン/オフ
-    <img src="/images/blogs/scg_audio_format/piano_roll.png" alt="piano_roll" width="50%">
+    <img src="/images/blogs/scg_audio_format/piano_roll.png" alt="piano_roll" width="90%">
 
   - オーディオと比較して<span class="blue-text">データサイズが相当軽量である</span>
   - <span class="red-text">データとして入手が難しい</span>
@@ -40,8 +40,8 @@ thumbnail: '/images/blogs/scg_audio_format/piano_roll.png'
 # 楽譜データの形式について（省略）
 楽譜データについては他の記事で説明するとして、ここでは詳細を省略しますが、MusicXMLというフォーマットやABC記譜法という形式で表現されることが一般的です。
 
-- MucsicXML: https://www.w3.org/2021/06/musicxml40/
-- ABC記譜法: https://abcnotation.com/wiki/abc:standard:v2.1
+- [MucsicXML](https://www.w3.org/2021/06/musicxml40/)
+- [ABC記譜法](https://abcnotation.com/wiki/abc:standard:v2.1)
 
 # どのデータ形式から楽譜データを生成するか
 ## １．オーディオ（WAV or MP3) から楽譜データを直接生成する
@@ -63,10 +63,10 @@ MIDIをMusicXMLに変換する開発記事は複数ヒットします。また�
 オーディオには音の高さ情報が直接的には記録されていません。オーディオ ⇒ MIDIの変換以前に、「音の高さを推定する」こと自体が研究の一分野になっています。
 
 短時間の音の波形に対しては古くからフーリエ解析が主流となっています。近年では**librosa**というツールが便利で、機械学習時の前処理としても使用されています。librosaでwavファイルを解析し、得たスペクトログラムの画像に対して学習を行うことで、画像解析的アプローチで音の特徴量を学習させることができます。
-<img src="/images/blogs/scg_audio_format/librosa.png" alt="librosa" width="50%">
+<img src="/images/blogs/scg_audio_format/librosa.png" alt="librosa" width="90%">
 
 
-librosa: https://librosa.org/doc/latest/index.html
+- [librosa](https://librosa.org/doc/latest/index.html)
 
 解析対象の音の区間が長くなると難易度は上がります。2019年頃の論文でも、隠れマルコフモデルというキーワードの入った論文が数多くヒットしました。個人的には、この分野は近年までDeep Learningのアプローチは少なかったという印象を受けました。
 
@@ -75,15 +75,16 @@ Google MagentaはアートにDeep Learningを活用するプロジェクトで�
 
 Onsets and Framesでは、ソロのピアノ楽曲の演奏情報 (MIDI) と実際に演奏した音源(WAV)のデータセット (MAESTROデータセット) が公開されており、この組み合わせを**Wave2Mid2Wave**と呼ばれる手法で学習させることで、<span class="blue-text">WAV ⇒ MIDIの変換精度を大きく向上</span>させています。
 
-<img src="/images/blogs/scg_audio_format/magenta.png" alt="magenta" width="50%">
-Google Magenta: [https://magenta.tensorflow.org](https://magenta.tensorflow.org)
+<img src="/images/blogs/scg_audio_format/magenta.png" alt="magenta" width="90%">
 
-Onsets and Frames: [https://magenta.tensorflow.org/onsets-frames](https://magenta.tensorflow.org/onsets-frames)
+- [Google Magenta](https://magenta.tensorflow.org)
+
+- [Onsets and Frames](https://magenta.tensorflow.org/onsets-frames)
 
 ### 3-3. DAWのAUDIO TO MIDI 機能
 オーディオ⇒MIDIについては、フリーソフトが複数配布されていたり、DAW (音楽制作ソフト)の一機能として装備されていたり、とツールとして使えるようになっているものも多くあります。中でも、Ableton LiveのMIDI変換機能が有名であるため、リンクを紹介しておきます。
 
-オーディオをMIDIに変換する| Ableton Live: https://www.ableton.com/ja/manual/converting-audio-to-midi/
+- [オーディオをMIDIに変換する| Ableton Live](https://www.ableton.com/ja/manual/converting-audio-to-midi/)
 
 # まとめ
 サーベイにより、周辺知識について理解が深まりました。オーディオ⇒MIDIの変換については、精度が出ていることは分かったのですが、自分たちのプロジェクトには組み込みにくいだろうと判断し、**ScoreGenerator**では**MIDIを入力データに使用**することにしました。
