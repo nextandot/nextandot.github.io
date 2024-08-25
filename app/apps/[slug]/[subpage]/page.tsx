@@ -2,7 +2,9 @@ import { getProjects, getSubpages, getSubpageBySlug } from '@/lib/projects'
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
-import Link from 'next/link'  // この行を追加
+import Link from 'next/link'
+import fs from 'fs'
+import path from 'path'
 
 const createCustomComponents = (slug: string): Components => ({
   span: ({ className, children, ...props }) => {
@@ -22,12 +24,18 @@ const createCustomComponents = (slug: string): Components => ({
 export async function generateStaticParams() {
   const projects = getProjects();
   const paths = [];
+
   for (const project of projects) {
-    const subpages = getSubpages(project.slug);
+    const projectDir = path.join(process.cwd(), 'projects', project.slug);
+    const subpages = fs.readdirSync(projectDir, { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory() && fs.existsSync(path.join(projectDir, dirent.name, 'README.md')))
+      .map(dirent => dirent.name);
+
     for (const subpage of subpages) {
       paths.push({ slug: project.slug, subpage });
     }
   }
+
   return paths;
 }
 
