@@ -3,7 +3,28 @@ import { TagListWrapper } from "@/components/tag-list-wrapper"
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
+import type { Metadata } from 'next'
 
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const post = await getPostBySlug(params.slug)
+  
+  if (!post) {
+    return {
+      title: 'Post Not Found | Nextandot',
+      description: 'The requested blog post could not be found.',
+    }
+  }
+
+  return {
+    title: `${post.title} | ブログ | Nextandot`,
+    description: post.content.substring(0, 160), // 最初の160文字を説明文として使用
+    openGraph: {
+      title: `${post.title} | ブログ | Nextandot`,
+      description: post.content.substring(0, 160),
+      images: [{ url: post.thumbnail || '/images/default-blog-og-image.jpg' }],
+    },
+  }
+}
 
 const customComponents: Components = {
   span: ({ className, children, ...props }) => {

@@ -1,5 +1,6 @@
 ---
 title: "Urimの機能詳細"
+description: "Urimの機能詳細のページです。"
 ---
 
 # Urimの主要機能

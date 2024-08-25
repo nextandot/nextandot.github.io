@@ -3,6 +3,7 @@ import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 
 type Project = {
     slug: string;
@@ -11,6 +12,19 @@ type Project = {
     subpages: string[];
     [key: string]: any; // その他のプロパティを許可
   };
+
+  export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const project = getProjectBySlug(params.slug) as Project;
+    return {
+      title: `${project.name} | アプリ | Nextandot`,
+      description: project.description || `${project.name}の詳細ページです。`,
+      openGraph: {
+        title: `${project.name} | アプリ | Nextandot`,
+        description: project.description || `${project.name}の詳細ページです。`,
+        images: [{ url: project.image }],
+      },
+    }
+  }
 
 const createCustomComponents = (slug: string): Components => ({
   span: ({ className, children, ...props }) => {

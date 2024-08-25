@@ -49,8 +49,9 @@ export function getSubpageBySlug(slug: string, subpage: string) {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
     return {
-      title: data.title || subpage, // タイトルがない場合はサブページ名を使用
+      title: data.title || subpage,
+      description: data.description || `${data.title || subpage}の詳細ページです。`,
       content,
-      ...data // その他のフロントマターデータも含める
+      ...data
     };
   }

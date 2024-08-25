@@ -1,10 +1,25 @@
-import { getProjects, getSubpages, getSubpageBySlug } from '@/lib/projects'
+import { getProjects, getSubpages, getSubpageBySlug, getProjectBySlug } from '@/lib/projects'
+import type { Metadata } from 'next'
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
+
+export async function generateMetadata({ params }: { params: { slug: string, subpage: string } }): Promise<Metadata> {
+  const subpageData = getSubpageBySlug(params.slug, params.subpage);
+  const projectData = getProjectBySlug(params.slug);
+
+  return {
+    title: `${subpageData.title} | ${projectData.name} | Nextandot`,
+    description: subpageData.description,
+    openGraph: {
+      title: `${subpageData.title} | ${projectData.name} | Nextandot`,
+      description: subpageData.description,
+    },
+  }
+}
 
 const createCustomComponents = (slug: string): Components => ({
   span: ({ className, children, ...props }) => {

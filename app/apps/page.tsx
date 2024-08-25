@@ -2,8 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { getProjects } from '@/lib/projects'
+import type { Metadata } from 'next'
 
-// プロジェクトの型定義を追加
+export const metadata: Metadata = {
+  title: 'アプリ一覧 | Nextandot',
+  description: '作成したアプリの一覧です。',
+}
+
 type Project = {
   slug: string;
   name: string;

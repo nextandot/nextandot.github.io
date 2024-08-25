@@ -1,5 +1,14 @@
-import Image from 'next/image'
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'メンバー紹介 | Nextandot',
+  description: 'Nextandotのチームメンバーを紹介します。多様な経験と専門性を持つメンバーが集まっています。',
+  openGraph: {
+    title: 'メンバー紹介 | Nextandot',
+    description: 'Nextandotのチームメンバーを紹介します。多様な経験と専門性を持つメンバーが集まっています。',
+  },
+}
 
 const members = [
     {
