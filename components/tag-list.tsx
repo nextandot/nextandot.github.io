@@ -13,7 +13,9 @@ export function TagList({ tags, selectedTag, onTagSelect }: TagListProps) {
         <span
           key={tag}
           className={`px-2 py-1 text-sm rounded cursor-pointer ${
-            selectedTag === tag ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+            selectedTag === tag
+              ? 'bg-[#FD674C] text-white'
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
           onClick={() => onTagSelect(tag)}
         >

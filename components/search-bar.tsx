@@ -25,7 +25,10 @@ export function SearchBar({ onSearch }: SearchBarProps) {
         placeholder="Search posts..."
         className="flex-grow"
       />
-      <Button type="submit">Search</Button>
+      <Button 
+        type="submit" 
+        className="bg-[#2E2E2E] hover:bg-[#1E1E1E] text-white"
+      >Search</Button>
     </form>
   )
 }

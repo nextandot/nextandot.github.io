@@ -65,11 +65,11 @@ const members = [
 
   export default function MembersPage() {
     return (
-      <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold mb-8">Our Team Members</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {members.map((member, index) => (
-            <Card key={index} className="overflow-hidden flex flex-col items-center">
+      <div>
+      <h1 className="text-3xl font-bold mb-8">Our Team Members</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {members.map((member, index) => (
+          <Card key={index} className="overflow-hidden flex flex-col items-center">
               <div className="w-64 h-64 overflow-hidden">
                 <img
                   src={member.imageUrl}
