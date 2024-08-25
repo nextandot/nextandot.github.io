@@ -58,7 +58,7 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
           <Card key={post.id} className="flex flex-col">
             <CardHeader>
               <CardTitle>
-                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                <Link href={`/blogs/${post.slug}`}>{post.title}</Link>
               </CardTitle>
             </CardHeader>
             <CardContent className="flex-grow">

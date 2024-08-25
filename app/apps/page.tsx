@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { getProjects } from '@/lib/projects'
+import { getProjects } from '@/lib/apps'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

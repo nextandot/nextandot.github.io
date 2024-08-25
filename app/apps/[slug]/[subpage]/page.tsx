@@ -1,4 +1,4 @@
-import { getProjects, getSubpages, getSubpageBySlug, getProjectBySlug } from '@/lib/projects'
+import { getProjects, getSubpages, getSubpageBySlug, getProjectBySlug } from '@/lib/apps'
 import type { Metadata } from 'next'
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
@@ -41,7 +41,7 @@ export async function generateStaticParams() {
   const paths = [];
 
   for (const project of projects) {
-    const projectDir = path.join(process.cwd(), 'projects', project.slug);
+    const projectDir = path.join(process.cwd(), 'contents/projects', project.slug);
     const subpages = fs.readdirSync(projectDir, { withFileTypes: true })
       .filter(dirent => dirent.isDirectory() && fs.existsSync(path.join(projectDir, dirent.name, 'README.md')))
       .map(dirent => dirent.name);

@@ -13,7 +13,7 @@ export default function Navigation() {
         <div className="space-x-4">
           <Link href="/members" className={pathname === '/members' ? 'text-[#FD674C]' : ''}>Members</Link>
           <Link href="/apps" className={pathname === '/apps' ? 'text-[#FD674C]' : ''}>Apps</Link>
-          <Link href="/blog" className={pathname === '/blog' ? 'text-[#FD674C]' : ''}>Blog</Link>
+          <Link href="/blogs" className={pathname === '/blogs' ? 'text-[#FD674C]' : ''}>Blogs</Link>
         </div>
       </div>
     </nav>

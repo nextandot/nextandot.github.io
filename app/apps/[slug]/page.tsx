@@ -1,4 +1,4 @@
-import { getProjects, getProjectBySlug } from '@/lib/projects'
+import { getProjects, getProjectBySlug } from '@/lib/apps'
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
