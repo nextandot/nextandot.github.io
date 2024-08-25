@@ -2,7 +2,7 @@
 title: 'MidiからABC記譜法に変換する処理について'
 date: '2023-04-01'
 tags: ['Score Generator', 'abcjs', 'Python', 'MIDI']
-thumbnail: '/images/blogs/scg_audio_format/piano_roll.png'
+thumbnail: '/images/blogs/scg-midi2abc-1/midi2abc.png'
 ---
 
 # はじめに
