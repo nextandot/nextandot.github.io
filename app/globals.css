@@ -76,3 +76,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+.red-text {
+  color: rgb(210, 29, 29);
+  font-weight: bold;
+}
+
+.blue-text {
+  color: rgb(4, 165, 240);
+  font-weight: bold;
+}
