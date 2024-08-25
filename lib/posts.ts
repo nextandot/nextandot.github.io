@@ -13,6 +13,7 @@ export interface Post {
     date: string;
     tags: string[];
     content: string;
+    thumbnail?: string;
   }
 
 export async function getPostBySlug(slug: string): Promise<Post>  {
@@ -46,7 +47,7 @@ export async function getSortedPostsData(): Promise<Post[]> {
         id,
         slug: id,
         content: matterResult.content,
-        ...(matterResult.data as { date: string; title: string; tags: string[] }),
+        ...(matterResult.data as { date: string; title: string; tags: string[]; thumbnail?: string }),
         };
     });
 
