@@ -78,7 +78,7 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: '70%',
+            maxWidth: '90%',
           },
         },
       },
