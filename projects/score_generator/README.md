@@ -1,6 +1,6 @@
 ---
 name: "Score Genarator"
-image: "/images/projects/score_genarator.png"
+image: "/images/projects/score_generator.png"
 summary: "音源を読み込み、楽譜を表示します。難易度バーを調整することで、譜面の難易度を変更できます。"
 ---
 
