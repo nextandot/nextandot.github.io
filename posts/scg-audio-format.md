@@ -76,9 +76,9 @@ Google MagentaはアートにDeep Learningを活用するプロジェクトで�
 Onsets and Framesでは、ソロのピアノ楽曲の演奏情報 (MIDI) と実際に演奏した音源(WAV)のデータセット (MAESTROデータセット) が公開されており、この組み合わせを**Wave2Mid2Wave**と呼ばれる手法で学習させることで、<span class="blue-text">WAV ⇒ MIDIの変換精度を大きく向上</span>させています。
 
 <img src="/images/blogs/scg_audio_format/magenta.png" alt="magenta" width="50%">
-Google Magenta: https://magenta.tensorflow.org/
+Google Magenta: [https://magenta.tensorflow.org](https://magenta.tensorflow.org)
 
-Onsets and Frames: https://magenta.tensorflow.org/onsets-frames
+Onsets and Frames: [https://magenta.tensorflow.org/onsets-frames](https://magenta.tensorflow.org/onsets-frames)
 
 ### 3-3. DAWのAUDIO TO MIDI 機能
 オーディオ⇒MIDIについては、フリーソフトが複数配布されていたり、DAW (音楽制作ソフト)の一機能として装備されていたり、とツールとして使えるようになっているものも多くあります。中でも、Ableton LiveのMIDI変換機能が有名であるため、リンクを紹介しておきます。
