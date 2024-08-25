@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -69,14 +70,11 @@ const members = [
       <h1 className="text-3xl font-bold mb-8">Our Team Members</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {members.map((member, index) => (
-          <Card key={index} className="overflow-hidden flex flex-col items-center">
-              <div className="w-64 h-64 overflow-hidden">
-                <img
-                  src={member.imageUrl}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <Card key={index} className="overflow-hidden flex flex-col items-center pt-8">
+              <Avatar className="w-32 h-32 mb-4">
+                <AvatarImage src={member.imageUrl} alt={member.name} />
+                <AvatarFallback>{member.name.slice(0, 2)}</AvatarFallback>
+              </Avatar>
               <CardHeader>
                 <CardTitle>{member.name}</CardTitle>
                 <p className="text-sm text-gray-500">{member.role}</p>
