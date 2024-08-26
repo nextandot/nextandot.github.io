@@ -64,31 +64,31 @@ const members = [
     },
   ]
 
-  export default function MembersPage() {
-    return (
-      <div>
+export default function MembersPage() {
+  return (
+    <div>
       <h1 className="text-3xl font-bold mb-8">Our Team Members</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {members.map((member, index) => (
-          <Card key={index} className="overflow-hidden flex flex-col items-center pt-8">
-              <Avatar className="w-32 h-32 mb-4">
-                <AvatarImage src={member.imageUrl} alt={member.name} />
-                <AvatarFallback>{member.name.slice(0, 2)}</AvatarFallback>
-              </Avatar>
-              <CardHeader>
-                <CardTitle>{member.name}</CardTitle>
-                <p className="text-sm text-gray-500">{member.role}</p>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside space-y-1">
-                  {member.description.map((item, i) => (
-                    <li key={i} className="text-sm" dangerouslySetInnerHTML={{ __html: item }} />
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+          <Card key={index} className="overflow-hidden flex flex-col items-center pt-8 text-center">
+            <Avatar className="w-32 h-32 mb-4">
+              <AvatarImage src={member.imageUrl} alt={member.name} />
+              <AvatarFallback>{member.name.slice(0, 2)}</AvatarFallback>
+            </Avatar>
+            <CardHeader className="flex flex-col items-center">
+              <CardTitle>{member.name}</CardTitle>
+              <p className="text-sm text-gray-500">{member.role}</p>
+            </CardHeader>
+            <CardContent className="flex flex-col">
+              <ul className="list-disc pl-0 space-y-1 text-left">
+                {member.description.map((item, i) => (
+                  <li key={i} className="text-sm" dangerouslySetInnerHTML={{ __html: item }} />
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        ))}
       </div>
-    )
-  }
+    </div>
+  )
+}
