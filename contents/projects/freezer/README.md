@@ -10,4 +10,5 @@ Coming soon...
 
 
 ## 法的なページ
+- [利用規約](terms_of_use)
 - [プライバシーポリシー](privacy_policy)
