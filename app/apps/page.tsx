@@ -15,7 +15,7 @@ type Project = {
   image: string;
   description: string;
   content: string;
-  [key: string]: any; // その他のプロパティを許可
+  [key: string]: any;
 };
 
 export default function AppsPage() {
@@ -27,7 +27,7 @@ export default function AppsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {apps.map((app) => (
           <Link href={`/apps/${app.slug}`} key={app.slug}>
-            <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-300">
+            <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
               <div className="w-full h-48 relative overflow-hidden">
                 <Image
                   src={app.image}
@@ -39,7 +39,7 @@ export default function AppsPage() {
               <CardHeader>
                 <CardTitle>{app.name}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <p>{app.description}</p>
               </CardContent>
             </Card>
