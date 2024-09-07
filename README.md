@@ -1,6 +1,7 @@
 # Home page of nextandot
 ## Setup
-1. Install pnpm
+1. Install Node.js (v20.10.0)
+1. Install pnpm (8.15.0)
 
 ## Debug
 1. Edit code
