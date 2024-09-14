@@ -47,6 +47,8 @@ jobs:
         run: pnpm next build
       - name: Generate sitemap
         run: pnpm run postbuild
+      - name: Copy html for Google Search Console
+        run: mv ./google_search_console/googlee574a3f8cb72e925.html ./out/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
