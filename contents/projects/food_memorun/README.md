@@ -1,5 +1,5 @@
 ---
-name: "Freezer"
+name: "食材めもるん"
 image: "/images/projects/no-image.jpg"
 summary: "Coming soon..."
 ---
