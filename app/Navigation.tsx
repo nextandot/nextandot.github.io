@@ -14,6 +14,7 @@ export default function Navigation() {
           <Link href="/members" className={pathname === '/members' ? 'text-[#FD674C]' : ''}>Members</Link>
           <Link href="/apps" className={pathname === '/apps' ? 'text-[#FD674C]' : ''}>Apps</Link>
           <Link href="/blogs" className={pathname === '/blogs' ? 'text-[#FD674C]' : ''}>Blogs</Link>
+          <Link href="/contact" className={pathname === '/contact' ? 'text-[#FD674C]' : ''}>Contact</Link>
         </div>
       </div>
     </nav>
